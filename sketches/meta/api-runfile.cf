@@ -16,6 +16,20 @@ bundle common 17ed5fd85b72395cbbb75bc02ff389aa
       "runenv_17ed5fd85b72395cbbb75bc02ff389aa_verbose" expression => "!any";
 }
 
+# environment ac5579d9c941b9054c4f84a84e5f3d7e
+bundle common ac5579d9c941b9054c4f84a84e5f3d7e
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_ac5579d9c941b9054c4f84a84e5f3d7e_activated" and => { classmatch("linux"), classmatch("redhat") };
+      "runenv_ac5579d9c941b9054c4f84a84e5f3d7e_test" expression => "!any";
+      "runenv_ac5579d9c941b9054c4f84a84e5f3d7e_verbose" expression => "!any";
+}
+
 
 # activation data
 bundle common cfsketch_g
@@ -55,15 +69,44 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition a85f708d1ee0e848612071429095e07b, activation __Install_apache_for_developers_001_Packages_installed_installed
       "__Install_apache_for_developers_001_Packages_installed_installed_pkgs_add" slist => { "apache2" };
 
+      # array 'metadata' from definition sketch metadata, activation __Install_apache2_on_Red_Hat_002_Packages_installed_installed
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[activation][identifier]" string => "Install apache2 on Red Hat";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1370558703";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_add' from definition a909dea7200b336dfeaa88e89fb63d21, activation __Install_apache2_on_Red_Hat_002_Packages_installed_installed
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed_pkgs_add" slist => { "httpd" };
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
       "17ed5fd85b72395cbbb75bc02ff389aa" usebundle => "17ed5fd85b72395cbbb75bc02ff389aa";
+      "ac5579d9c941b9054c4f84a84e5f3d7e" usebundle => "ac5579d9c941b9054c4f84a84e5f3d7e";
 
     runenv_17ed5fd85b72395cbbb75bc02ff389aa_activated::
       "__Install_apache_for_developers_001_Packages_installed_installed" usebundle => cfdc_packages:installed("17ed5fd85b72395cbbb75bc02ff389aa", "default:cfsketch_run.__Install_apache_for_developers_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_apache_for_developers_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Install_apache_for_developers_001_Packages_installed_installed";
+    runenv_ac5579d9c941b9054c4f84a84e5f3d7e_activated::
+      "__Install_apache2_on_Red_Hat_002_Packages_installed_installed" usebundle => cfdc_packages:installed("ac5579d9c941b9054c4f84a84e5f3d7e", "default:cfsketch_run.__Install_apache2_on_Red_Hat_002_Packages_installed_installed_metadata", @(cfsketch_run.__Install_apache2_on_Red_Hat_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Install_apache2_on_Red_Hat_002_Packages_installed_installed";
 
   reports:
     inform_mode::
       "activation __Install_apache_for_developers_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __Install_apache2_on_Red_Hat_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
