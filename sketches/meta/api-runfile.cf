@@ -2,8 +2,8 @@
 
 # environment common bundles
 
-# environment f2a5cdf7b92bab5571c24172112c6fa7
-bundle common f2a5cdf7b92bab5571c24172112c6fa7
+# environment d5588420a631dcaec92e97007f2ca66b
+bundle common d5588420a631dcaec92e97007f2ca66b
 {
   vars:
       "activated" string => "--'activated' value passed as a class function--";
@@ -11,9 +11,9 @@ bundle common f2a5cdf7b92bab5571c24172112c6fa7
       "test" string => "";
       "verbose" string => "";
   classes:
-      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated" and => { classmatch("am_policy_hub") };
-      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_test" expression => "!any";
-      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_verbose" expression => "!any";
+      "runenv_d5588420a631dcaec92e97007f2ca66b_activated" and => { classmatch("ubuntu.*") };
+      "runenv_d5588420a631dcaec92e97007f2ca66b_test" expression => "!any";
+      "runenv_d5588420a631dcaec92e97007f2ca66b_verbose" expression => "!any";
 }
 
 
@@ -32,7 +32,7 @@ bundle agent cfsketch_run
 
       # array 'metadata' from definition sketch metadata, activation __Apache_Installation_001_Packages_installed_installed
       "__Apache_Installation_001_Packages_installed_installed_metadata[activation][identifier]" string => "Apache Installation";
-      "__Apache_Installation_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1370632241";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1370632465";
       "__Apache_Installation_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
       "__Apache_Installation_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
       "__Apache_Installation_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
@@ -52,16 +52,16 @@ bundle agent cfsketch_run
       "__Apache_Installation_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
       "__Apache_Installation_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition 6f1df76aafa2012177e0f8ff76dbd7b7, activation __Apache_Installation_001_Packages_installed_installed
+      # list 'pkgs_add' from definition c53db12b79d5b2b74f319b91caf7e88f, activation __Apache_Installation_001_Packages_installed_installed
       "__Apache_Installation_001_Packages_installed_installed_pkgs_add" slist => { "apache2" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "f2a5cdf7b92bab5571c24172112c6fa7" usebundle => "f2a5cdf7b92bab5571c24172112c6fa7";
+      "d5588420a631dcaec92e97007f2ca66b" usebundle => "d5588420a631dcaec92e97007f2ca66b";
 
-    runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated::
-      "__Apache_Installation_001_Packages_installed_installed" usebundle => cfdc_packages:installed("f2a5cdf7b92bab5571c24172112c6fa7", "default:cfsketch_run.__Apache_Installation_001_Packages_installed_installed_metadata", @(cfsketch_run.__Apache_Installation_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Apache_Installation_001_Packages_installed_installed";
+    runenv_d5588420a631dcaec92e97007f2ca66b_activated::
+      "__Apache_Installation_001_Packages_installed_installed" usebundle => cfdc_packages:installed("d5588420a631dcaec92e97007f2ca66b", "default:cfsketch_run.__Apache_Installation_001_Packages_installed_installed_metadata", @(cfsketch_run.__Apache_Installation_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Apache_Installation_001_Packages_installed_installed";
 
   reports:
     inform_mode::
