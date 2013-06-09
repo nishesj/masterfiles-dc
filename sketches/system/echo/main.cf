@@ -1,0 +1,22 @@
+body file control
+{
+      namespace => "myskeches_echo";
+}
+
+bundle agent echo(runenv, metadata, toprint)
+{
+  classes:
+      "$(vars)" expression => "default:runenv_$(runenv)_$(vars)";
+      "not_$(vars)" expression => "!default:runenv_$(runenv)_$(vars)";
+
+  vars:
+      "vars" slist => { "@(default:$(runenv).env_vars)" };
+      "$(vars)" string => "$(default:$(runenv).$(vars))";
+
+      "activation_id" string => canonify("$(this.bundle)_$($(metadata)[activation][identifier])_$($(metadata)[activation][timestamp])");
+
+  commands:
+	    "/bin/echo $(toprint)"
+			   comment => "Print to console for testing",
+				 handle => "$(activation_id)_echo";
+}
