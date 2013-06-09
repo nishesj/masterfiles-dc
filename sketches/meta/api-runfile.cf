@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment f2a5cdf7b92bab5571c24172112c6fa7
-bundle common f2a5cdf7b92bab5571c24172112c6fa7
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated" and => { classmatch("am_policy_hub") };
-      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_test" expression => "!any";
-      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_verbose" expression => "!any";
-}
-
 # environment d5588420a631dcaec92e97007f2ca66b
 bundle common d5588420a631dcaec92e97007f2ca66b
 {
@@ -37,71 +23,47 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/system/echo/main.cf", "sketches/package_management/packages_installed/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __Printing_hello_world_001_System_echo_echo
-      "__Printing_hello_world_001_System_echo_echo_metadata[activation][identifier]" string => "Printing hello world";
-      "__Printing_hello_world_001_System_echo_echo_metadata[activation][timestamp]" string => "1370781371";
-      "__Printing_hello_world_001_System_echo_echo_metadata[api][metadata][type]" string => "metadata";
-      "__Printing_hello_world_001_System_echo_echo_metadata[api][runenv][type]" string => "environment";
-      "__Printing_hello_world_001_System_echo_echo_metadata[api][toprint][type]" string => "string";
-      "__Printing_hello_world_001_System_echo_echo_metadata[authors]" slist => { "Author Name <author.name@example.com>" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[license]" string => "MIT";
-      "__Printing_hello_world_001_System_echo_echo_metadata[location]" string => "sketches/system/echo";
-      "__Printing_hello_world_001_System_echo_echo_metadata[manifest]" slist => { "main.cf" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[manifest_cf]" slist => { "main.cf" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[manifest_docs]" slist => { "cf_null" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[manifest_exe]" slist => { "cf_null" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[manifest_extra]" slist => { "cf_null" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[manifest_test]" slist => { "cf_null" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[name]" string => "System::echo";
-      "__Printing_hello_world_001_System_echo_echo_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
-      "__Printing_hello_world_001_System_echo_echo_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __Apache_Installation_001_Packages_installed_installed
+      "__Apache_Installation_001_Packages_installed_installed_metadata[activation][identifier]" string => "Apache Installation";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1370632465";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__Apache_Installation_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__Apache_Installation_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # array 'metadata' from definition sketch metadata, activation __Apache_Installation_002_Packages_installed_installed
-      "__Apache_Installation_002_Packages_installed_installed_metadata[activation][identifier]" string => "Apache Installation";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1370632465";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__Apache_Installation_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__Apache_Installation_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition c53db12b79d5b2b74f319b91caf7e88f, activation __Apache_Installation_002_Packages_installed_installed
-      "__Apache_Installation_002_Packages_installed_installed_pkgs_add" slist => { "apache2" };
+      # list 'pkgs_add' from definition c53db12b79d5b2b74f319b91caf7e88f, activation __Apache_Installation_001_Packages_installed_installed
+      "__Apache_Installation_001_Packages_installed_installed_pkgs_add" slist => { "apache2" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "f2a5cdf7b92bab5571c24172112c6fa7" usebundle => "f2a5cdf7b92bab5571c24172112c6fa7";
       "d5588420a631dcaec92e97007f2ca66b" usebundle => "d5588420a631dcaec92e97007f2ca66b";
 
-    runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated::
-      "__Printing_hello_world_001_System_echo_echo" usebundle => myskeches_echo:echo("f2a5cdf7b92bab5571c24172112c6fa7", "default:cfsketch_run.__Printing_hello_world_001_System_echo_echo_metadata", "Hello world!"), ifvarclass => "(linux)", useresult => "return___Printing_hello_world_001_System_echo_echo";
     runenv_d5588420a631dcaec92e97007f2ca66b_activated::
-      "__Apache_Installation_002_Packages_installed_installed" usebundle => cfdc_packages:installed("d5588420a631dcaec92e97007f2ca66b", "default:cfsketch_run.__Apache_Installation_002_Packages_installed_installed_metadata", @(cfsketch_run.__Apache_Installation_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Apache_Installation_002_Packages_installed_installed";
+      "__Apache_Installation_001_Packages_installed_installed" usebundle => cfdc_packages:installed("d5588420a631dcaec92e97007f2ca66b", "default:cfsketch_run.__Apache_Installation_001_Packages_installed_installed_metadata", @(cfsketch_run.__Apache_Installation_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Apache_Installation_001_Packages_installed_installed";
 
   reports:
     inform_mode::
-      "activation __Printing_hello_world_001_System_echo_echo could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
-      "activation __Apache_Installation_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __Apache_Installation_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
