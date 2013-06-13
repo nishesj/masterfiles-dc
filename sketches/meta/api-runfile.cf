@@ -55,31 +55,6 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition a4e00f24c676e8649b29d0ac4bbacca5, activation __Testing_activations_001_Packages_installed_installed
       "__Testing_activations_001_Packages_installed_installed_pkgs_add" slist => { "screen" };
 
-      # array 'metadata' from definition sketch metadata, activation __failure_002_Packages_installed_installed
-      "__failure_002_Packages_installed_installed_metadata[activation][identifier]" string => "failure";
-      "__failure_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1371119360";
-      "__failure_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__failure_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__failure_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__failure_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__failure_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__failure_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__failure_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__failure_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__failure_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__failure_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__failure_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__failure_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__failure_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__failure_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__failure_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__failure_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__failure_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__failure_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition f24ad0f4ac9ba2bb6f94506a7cc4d111, activation __failure_002_Packages_installed_installed
-      "__failure_002_Packages_installed_installed_pkgs_add" slist => { "nosuchpackage" };
-
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -87,11 +62,8 @@ bundle agent cfsketch_run
 
     runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
       "__Testing_activations_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__Testing_activations_001_Packages_installed_installed_metadata", @(cfsketch_run.__Testing_activations_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Testing_activations_001_Packages_installed_installed";
-    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__failure_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__failure_002_Packages_installed_installed_metadata", @(cfsketch_run.__failure_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___failure_002_Packages_installed_installed";
 
   reports:
     inform_mode::
       "activation __Testing_activations_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __failure_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
