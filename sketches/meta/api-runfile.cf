@@ -2,6 +2,20 @@
 
 # environment common bundles
 
+# environment 092b04a40fdd4cb8bfdb685f2c4a0328
+bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated" and => { classmatch("cfengine_3") };
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_test" expression => "!any";
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_verbose" expression => "!any";
+}
+
 # environment ac5579d9c941b9054c4f84a84e5f3d7e
 bundle common ac5579d9c941b9054c4f84a84e5f3d7e
 {
@@ -23,7 +37,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/package_management/packages_removed/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -55,15 +69,45 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition a97c3e3bd3a7da2f7366fff3ae9bcf85, activation __Install_Apache_001_Packages_installed_installed
       "__Install_Apache_001_Packages_installed_installed_pkgs_add" slist => { "httpd" };
 
+      # array 'metadata' from definition sketch metadata, activation __ads_002_Packages_removed_removed
+      "__ads_002_Packages_removed_removed_metadata[activation][identifier]" string => "ads";
+      "__ads_002_Packages_removed_removed_metadata[activation][timestamp]" string => "1377186795";
+      "__ads_002_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
+      "__ads_002_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
+      "__ads_002_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
+      "__ads_002_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
+      "__ads_002_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__ads_002_Packages_removed_removed_metadata[bundle_options][name]" string => "";
+      "__ads_002_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
+      "__ads_002_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__ads_002_Packages_removed_removed_metadata[license]" string => "MIT";
+      "__ads_002_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
+      "__ads_002_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
+      "__ads_002_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
+      "__ads_002_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
+      "__ads_002_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__ads_002_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__ads_002_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
+      "__ads_002_Packages_removed_removed_metadata[name]" string => "Packages::removed";
+      "__ads_002_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__ads_002_Packages_removed_removed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_removed' from definition b568a58dd0c0b74b33ee31ba369b0914, activation __ads_002_Packages_removed_removed
+      "__ads_002_Packages_removed_removed_pkgs_removed" slist => { "ads" };
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
+      "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
       "ac5579d9c941b9054c4f84a84e5f3d7e" usebundle => "ac5579d9c941b9054c4f84a84e5f3d7e";
 
     runenv_ac5579d9c941b9054c4f84a84e5f3d7e_activated::
       "__Install_Apache_001_Packages_installed_installed" usebundle => cfdc_packages:installed("ac5579d9c941b9054c4f84a84e5f3d7e", "default:cfsketch_run.__Install_Apache_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_Apache_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Install_Apache_001_Packages_installed_installed";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__ads_002_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_002_Packages_removed_removed_metadata", @(cfsketch_run.__ads_002_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_002_Packages_removed_removed";
 
   reports:
     inform_mode::
       "activation __Install_Apache_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __ads_002_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }

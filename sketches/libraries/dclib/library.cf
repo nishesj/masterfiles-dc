@@ -1,12 +1,15 @@
 bundle agent report_metadata(bundlename, metadata)
 {
+  classes:
+      "given" not => strcmp($(metadata), "");
+
   vars:
       # pretty-print the authors and dependencies
       "dependencies" string => join(", ", "$(metadata)[depends]");
       "authors" string => join(", ", "$(metadata)[authors]");
 
   reports:
-    cfengine::
+    given::
       "$(bundlename): $($(metadata)[name]) license = $($(metadata)[license])";
       "$(bundlename): $($(metadata)[name]) dependencies = $(dependencies)";
 
@@ -20,19 +23,33 @@ bundle agent eu(runenv)
       "$(vars)" expression => "default:runenv_$(runenv)_$(vars)";
       "not_$(vars)" expression => "!default:runenv_$(runenv)_$(vars)";
 
+      "have_path_prefix" expression => isvariable("default:$(runenv).path_prefix");
+      "no_path_prefix" not => isvariable("default:$(runenv).path_prefix");
+
   vars:
       "vars" slist => { "@(default:$(runenv).env_vars)" };
       "$(vars)" string => "$(default:$(runenv).$(vars))";
 
     activated.not_test::
-      "path_prefix" string => "", policy => "free";
       "exec_prefix" string => "", policy => "free";
       "show_prefix" string => "", policy => "free";
 
     activated.test::
-      "path_prefix" string => "/tmp", policy => "free";
       "exec_prefix" string => "/bin/echo ", policy => "free";
       "show_prefix" string => "/bin/grep . ", policy => "free";
+
+    activated.have_path_prefix::
+      "path_prefix" string => "$(default:$(runenv).path_prefix)", policy => "free";
+    activated.no_path_prefix.not_test::
+      "path_prefix" string => "", policy => "free";
+    activated.no_path_prefix.test::
+      "path_prefix" string => "/tmp", policy => "free";
+
+  reports:
+    verbose::
+      "$(this.bundle): the path_prefix for runenv $(runenv) is '$(path_prefix)'";
+    veryverbose::
+      "$(this.bundle): the given path_prefix for runenv $(runenv) is '$(default:$(runenv).path_prefix)'";
 }
 
 # an example of how a sketch can install itself
@@ -107,7 +124,7 @@ bundle edit_line insert_ini_section(name, config)
 # same as COPBL start location body
 body location dc_start
 {
-before_after => "before";
+      before_after => "before";
 }
 
 # same as COPBL paths location body
@@ -313,11 +330,11 @@ bundle common dc_paths
       "$(all_paths)" string => "$(path[$(all_paths)])";
 
   classes:
-    "_stdlib_has_path_$(all_paths)"
+      "_stdlib_has_path_$(all_paths)"
       expression => isvariable("$(all_paths)"),
       comment    => "It's useful to know if a given path is defined";
 
-    "_stdlib_path_exists_$(all_paths)"
+      "_stdlib_path_exists_$(all_paths)"
       expression => fileexists("$(path[$(all_paths)])"),
       comment    => "It's useful to know if $(all_paths) exists on the filesystem as defined";
 }
@@ -335,20 +352,20 @@ body contain dc_setuid_gid_umask(uid, gid, umask)
 # 077   | 600     (rw-------) | 700     (rwx------)
 # 277   | 400     (r--------) | 500     (r-x------)
 {
-exec_owner => "$(uid)";
-exec_group => "$(uid)";
-umask => "$(umask)";
+      exec_owner => "$(uid)";
+      exec_group => "$(uid)";
+      umask => "$(umask)";
 }
 
 body classes dc_generic(x)
 #
 # Define x prefixed/suffixed with promise outcome
 {
-  promise_repaired => { "promise_repaired_$(x)", "$(x)_repaired", "$(x)_ok" };
-  repair_failed => { "repair_failed_$(x)", "$(x)_failed", "$(x)_not_ok", "$(x)_not_kept", "$(x)_not_repaired" };
-  repair_denied => { "repair_denied_$(x)", "$(x)_denied", "$(x)_not_ok", "$(x)_not_kept", "$(x)_not_repaired" };
-  repair_timeout => { "repair_timeout_$(x)", "$(x)_timeout", "$(x)_not_ok", "$(x)_not_kept", "$(x)_not_repaired" };
-  promise_kept => { "promise_kept_$(x)", "$(x)_kept", "$(x)_ok", "$(x)_not_repaired" };
+      promise_repaired => { "promise_repaired_$(x)", "$(x)_repaired", "$(x)_ok" };
+      repair_failed => { "repair_failed_$(x)", "$(x)_failed", "$(x)_not_ok", "$(x)_not_kept", "$(x)_not_repaired" };
+      repair_denied => { "repair_denied_$(x)", "$(x)_denied", "$(x)_not_ok", "$(x)_not_kept", "$(x)_not_repaired" };
+      repair_timeout => { "repair_timeout_$(x)", "$(x)_timeout", "$(x)_not_ok", "$(x)_not_kept", "$(x)_not_repaired" };
+      promise_kept => { "promise_kept_$(x)", "$(x)_kept", "$(x)_ok", "$(x)_not_repaired" };
 }
 
 body changes dc_detect_all_change_using(hash)
@@ -357,7 +374,7 @@ body changes dc_detect_all_change_using(hash)
 # hash - supported hashing algorithm (md5, sha1, sha224, sha256, sha384,
 #   sha512, best)
 {
-hash           => "$(hash)";
-report_changes => "all";
-update_hashes  => "yes";
+      hash           => "$(hash)";
+      report_changes => "all";
+      update_hashes  => "yes";
 }
