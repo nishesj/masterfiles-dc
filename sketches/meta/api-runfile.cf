@@ -37,7 +37,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/package_management/packages_removed/main.cf", "sketches/applications/newrelic/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/security/file_integrity/main.cf", "sketches/package_management/packages_removed/main.cf", "sketches/applications/newrelic/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -69,35 +69,35 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition a97c3e3bd3a7da2f7366fff3ae9bcf85, activation __Install_Apache_001_Packages_installed_installed
       "__Install_Apache_001_Packages_installed_installed_pkgs_add" slist => { "httpd" };
 
-      # array 'metadata' from definition sketch metadata, activation __ads_002_Packages_removed_removed
-      "__ads_002_Packages_removed_removed_metadata[activation][identifier]" string => "ads";
-      "__ads_002_Packages_removed_removed_metadata[activation][timestamp]" string => "1377186795";
-      "__ads_002_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
-      "__ads_002_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
-      "__ads_002_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
-      "__ads_002_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
-      "__ads_002_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__ads_002_Packages_removed_removed_metadata[bundle_options][name]" string => "";
-      "__ads_002_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
-      "__ads_002_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__ads_002_Packages_removed_removed_metadata[license]" string => "MIT";
-      "__ads_002_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
-      "__ads_002_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
-      "__ads_002_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
-      "__ads_002_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
-      "__ads_002_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__ads_002_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__ads_002_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
-      "__ads_002_Packages_removed_removed_metadata[name]" string => "Packages::removed";
-      "__ads_002_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__ads_002_Packages_removed_removed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __asd_002_Security_file_integrity_watch
+      "__asd_002_Security_file_integrity_watch_metadata[activation][identifier]" string => "asd";
+      "__asd_002_Security_file_integrity_watch_metadata[activation][timestamp]" string => "1377188481";
+      "__asd_002_Security_file_integrity_watch_metadata[api][hash_algorithm][type]" string => "string";
+      "__asd_002_Security_file_integrity_watch_metadata[api][ifelapsed][type]" string => "string";
+      "__asd_002_Security_file_integrity_watch_metadata[api][metadata][type]" string => "metadata";
+      "__asd_002_Security_file_integrity_watch_metadata[api][paths][type]" string => "return";
+      "__asd_002_Security_file_integrity_watch_metadata[api][runenv][type]" string => "environment";
+      "__asd_002_Security_file_integrity_watch_metadata[api][watch][type]" string => "list";
+      "__asd_002_Security_file_integrity_watch_metadata[authors]" slist => { "Eystein Stenberg <eystein@cfengine.com>" };
+      "__asd_002_Security_file_integrity_watch_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__asd_002_Security_file_integrity_watch_metadata[license]" string => "MIT";
+      "__asd_002_Security_file_integrity_watch_metadata[location]" string => "sketches/security/file_integrity";
+      "__asd_002_Security_file_integrity_watch_metadata[manifest]" slist => { "README.md", "main.cf", "params/pcidss_v2.json" };
+      "__asd_002_Security_file_integrity_watch_metadata[manifest_cf]" slist => { "main.cf" };
+      "__asd_002_Security_file_integrity_watch_metadata[manifest_docs]" slist => { "README.md" };
+      "__asd_002_Security_file_integrity_watch_metadata[manifest_exe]" slist => { "cf_null" };
+      "__asd_002_Security_file_integrity_watch_metadata[manifest_extra]" slist => { "params/pcidss_v2.json" };
+      "__asd_002_Security_file_integrity_watch_metadata[manifest_test]" slist => { "cf_null" };
+      "__asd_002_Security_file_integrity_watch_metadata[name]" string => "Security::file_integrity";
+      "__asd_002_Security_file_integrity_watch_metadata[tags]" slist => { "cfdc", "pcidss", "pcidss_v2", "pcidss_v2_sec_11_5", "enterprise_compatible" };
+      "__asd_002_Security_file_integrity_watch_metadata[version]" string => "1";
 
-      # list 'pkgs_removed' from definition b568a58dd0c0b74b33ee31ba369b0914, activation __ads_002_Packages_removed_removed
-      "__ads_002_Packages_removed_removed_pkgs_removed" slist => { "ads" };
+      # list 'watch' from definition 832239ef1c040c0d0d425b94824c6cb6, activation __asd_002_Security_file_integrity_watch
+      "__asd_002_Security_file_integrity_watch_watch" slist => { "/asd" };
 
       # array 'metadata' from definition sketch metadata, activation __ads_003_Packages_removed_removed
       "__ads_003_Packages_removed_removed_metadata[activation][identifier]" string => "ads";
-      "__ads_003_Packages_removed_removed_metadata[activation][timestamp]" string => "1377186986";
+      "__ads_003_Packages_removed_removed_metadata[activation][timestamp]" string => "1377186795";
       "__ads_003_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
       "__ads_003_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
       "__ads_003_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
@@ -118,33 +118,59 @@ bundle agent cfsketch_run
       "__ads_003_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
       "__ads_003_Packages_removed_removed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_removed' from definition 146072c41fe9295e873b0346482af860, activation __ads_003_Packages_removed_removed
+      # list 'pkgs_removed' from definition b568a58dd0c0b74b33ee31ba369b0914, activation __ads_003_Packages_removed_removed
       "__ads_003_Packages_removed_removed_pkgs_removed" slist => { "ads" };
 
-      # array 'metadata' from definition sketch metadata, activation __asdasd_004_Applications_NewRelic_server
-      "__asdasd_004_Applications_NewRelic_server_metadata[activation][identifier]" string => "asdasd";
-      "__asdasd_004_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1377187243";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
-      "__asdasd_004_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
-      "__asdasd_004_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[license]" string => "MIT";
-      "__asdasd_004_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
-      "__asdasd_004_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
-      "__asdasd_004_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
-      "__asdasd_004_Applications_NewRelic_server_metadata[version]" string => "1";
+      # array 'metadata' from definition sketch metadata, activation __ads_004_Packages_removed_removed
+      "__ads_004_Packages_removed_removed_metadata[activation][identifier]" string => "ads";
+      "__ads_004_Packages_removed_removed_metadata[activation][timestamp]" string => "1377186986";
+      "__ads_004_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
+      "__ads_004_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
+      "__ads_004_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
+      "__ads_004_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
+      "__ads_004_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__ads_004_Packages_removed_removed_metadata[bundle_options][name]" string => "";
+      "__ads_004_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
+      "__ads_004_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__ads_004_Packages_removed_removed_metadata[license]" string => "MIT";
+      "__ads_004_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
+      "__ads_004_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
+      "__ads_004_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
+      "__ads_004_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
+      "__ads_004_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__ads_004_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__ads_004_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
+      "__ads_004_Packages_removed_removed_metadata[name]" string => "Packages::removed";
+      "__ads_004_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__ads_004_Packages_removed_removed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_removed' from definition 146072c41fe9295e873b0346482af860, activation __ads_004_Packages_removed_removed
+      "__ads_004_Packages_removed_removed_pkgs_removed" slist => { "ads" };
+
+      # array 'metadata' from definition sketch metadata, activation __asdasd_005_Applications_NewRelic_server
+      "__asdasd_005_Applications_NewRelic_server_metadata[activation][identifier]" string => "asdasd";
+      "__asdasd_005_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1377187243";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
+      "__asdasd_005_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
+      "__asdasd_005_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[license]" string => "MIT";
+      "__asdasd_005_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
+      "__asdasd_005_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
+      "__asdasd_005_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
+      "__asdasd_005_Applications_NewRelic_server_metadata[version]" string => "1";
 
   methods:
     any::
@@ -155,19 +181,23 @@ bundle agent cfsketch_run
     runenv_ac5579d9c941b9054c4f84a84e5f3d7e_activated::
       "__Install_Apache_001_Packages_installed_installed" usebundle => cfdc_packages:installed("ac5579d9c941b9054c4f84a84e5f3d7e", "default:cfsketch_run.__Install_Apache_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_Apache_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Install_Apache_001_Packages_installed_installed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ads_002_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_002_Packages_removed_removed_metadata", @(cfsketch_run.__ads_002_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_002_Packages_removed_removed";
+      "__asd_002_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__asd_002_Security_file_integrity_watch_metadata", @(cfsketch_run.__asd_002_Security_file_integrity_watch_watch), "sha1", "1440"), ifvarclass => "(linux|windows)", useresult => "return___asd_002_Security_file_integrity_watch";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__ads_003_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_003_Packages_removed_removed_metadata", @(cfsketch_run.__ads_003_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_003_Packages_removed_removed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__asdasd_004_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__asdasd_004_Applications_NewRelic_server_metadata", "not valid", "1", "1"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___asdasd_004_Applications_NewRelic_server";
+      "__ads_004_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_004_Packages_removed_removed_metadata", @(cfsketch_run.__ads_004_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_004_Packages_removed_removed";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__asdasd_005_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__asdasd_005_Applications_NewRelic_server_metadata", "not valid", "1", "1"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___asdasd_005_Applications_NewRelic_server";
 
   reports:
     inform_mode::
       "activation __Install_Apache_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __ads_002_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __asd_002_Security_file_integrity_watch returned paths = $(return___asd_002_Security_file_integrity_watch[paths])";
+      "activation __asd_002_Security_file_integrity_watch could not run because it requires classes (linux|windows)" ifvarclass => "inform_mode.!((linux|windows))";
       "activation __ads_003_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __asdasd_004_Applications_NewRelic_server returned installed = $(return___asdasd_004_Applications_NewRelic_server[installed])";
-      "activation __asdasd_004_Applications_NewRelic_server returned configured = $(return___asdasd_004_Applications_NewRelic_server[configured])";
-      "activation __asdasd_004_Applications_NewRelic_server returned running = $(return___asdasd_004_Applications_NewRelic_server[running])";
-      "activation __asdasd_004_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __ads_004_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __asdasd_005_Applications_NewRelic_server returned installed = $(return___asdasd_005_Applications_NewRelic_server[installed])";
+      "activation __asdasd_005_Applications_NewRelic_server returned configured = $(return___asdasd_005_Applications_NewRelic_server[configured])";
+      "activation __asdasd_005_Applications_NewRelic_server returned running = $(return___asdasd_005_Applications_NewRelic_server[running])";
+      "activation __asdasd_005_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
