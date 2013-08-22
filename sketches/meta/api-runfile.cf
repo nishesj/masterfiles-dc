@@ -95,6 +95,32 @@ bundle agent cfsketch_run
       # list 'pkgs_removed' from definition b568a58dd0c0b74b33ee31ba369b0914, activation __ads_002_Packages_removed_removed
       "__ads_002_Packages_removed_removed_pkgs_removed" slist => { "ads" };
 
+      # array 'metadata' from definition sketch metadata, activation __ads_003_Packages_removed_removed
+      "__ads_003_Packages_removed_removed_metadata[activation][identifier]" string => "ads";
+      "__ads_003_Packages_removed_removed_metadata[activation][timestamp]" string => "1377186986";
+      "__ads_003_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
+      "__ads_003_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
+      "__ads_003_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
+      "__ads_003_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
+      "__ads_003_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__ads_003_Packages_removed_removed_metadata[bundle_options][name]" string => "";
+      "__ads_003_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
+      "__ads_003_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__ads_003_Packages_removed_removed_metadata[license]" string => "MIT";
+      "__ads_003_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
+      "__ads_003_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
+      "__ads_003_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
+      "__ads_003_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
+      "__ads_003_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__ads_003_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__ads_003_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
+      "__ads_003_Packages_removed_removed_metadata[name]" string => "Packages::removed";
+      "__ads_003_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__ads_003_Packages_removed_removed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_removed' from definition 146072c41fe9295e873b0346482af860, activation __ads_003_Packages_removed_removed
+      "__ads_003_Packages_removed_removed_pkgs_removed" slist => { "ads" };
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -105,9 +131,12 @@ bundle agent cfsketch_run
       "__Install_Apache_001_Packages_installed_installed" usebundle => cfdc_packages:installed("ac5579d9c941b9054c4f84a84e5f3d7e", "default:cfsketch_run.__Install_Apache_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_Apache_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Install_Apache_001_Packages_installed_installed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__ads_002_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_002_Packages_removed_removed_metadata", @(cfsketch_run.__ads_002_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_002_Packages_removed_removed";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__ads_003_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_003_Packages_removed_removed_metadata", @(cfsketch_run.__ads_003_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_003_Packages_removed_removed";
 
   reports:
     inform_mode::
       "activation __Install_Apache_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
       "activation __ads_002_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __ads_003_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
