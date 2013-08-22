@@ -37,7 +37,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/package_management/packages_removed/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/package_management/packages_removed/main.cf", "sketches/applications/newrelic/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -121,6 +121,31 @@ bundle agent cfsketch_run
       # list 'pkgs_removed' from definition 146072c41fe9295e873b0346482af860, activation __ads_003_Packages_removed_removed
       "__ads_003_Packages_removed_removed_pkgs_removed" slist => { "ads" };
 
+      # array 'metadata' from definition sketch metadata, activation __asdasd_004_Applications_NewRelic_server
+      "__asdasd_004_Applications_NewRelic_server_metadata[activation][identifier]" string => "asdasd";
+      "__asdasd_004_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1377187243";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
+      "__asdasd_004_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
+      "__asdasd_004_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[license]" string => "MIT";
+      "__asdasd_004_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
+      "__asdasd_004_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
+      "__asdasd_004_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
+      "__asdasd_004_Applications_NewRelic_server_metadata[version]" string => "1";
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -133,10 +158,16 @@ bundle agent cfsketch_run
       "__ads_002_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_002_Packages_removed_removed_metadata", @(cfsketch_run.__ads_002_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_002_Packages_removed_removed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__ads_003_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ads_003_Packages_removed_removed_metadata", @(cfsketch_run.__ads_003_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ads_003_Packages_removed_removed";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__asdasd_004_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__asdasd_004_Applications_NewRelic_server_metadata", "not valid", "1", "1"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___asdasd_004_Applications_NewRelic_server";
 
   reports:
     inform_mode::
       "activation __Install_Apache_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
       "activation __ads_002_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
       "activation __ads_003_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __asdasd_004_Applications_NewRelic_server returned installed = $(return___asdasd_004_Applications_NewRelic_server[installed])";
+      "activation __asdasd_004_Applications_NewRelic_server returned configured = $(return___asdasd_004_Applications_NewRelic_server[configured])";
+      "activation __asdasd_004_Applications_NewRelic_server returned running = $(return___asdasd_004_Applications_NewRelic_server[running])";
+      "activation __asdasd_004_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
