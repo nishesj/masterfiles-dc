@@ -10,7 +10,6 @@ body common control
 
  bundlesequence => {
 
-                  # Common bundle first (Best Practice)
                     "def",
                     "cfe_internal_hub_vars",
                     "cfsketch_run",
