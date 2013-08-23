@@ -15,7 +15,6 @@ body common control
                     "cfe_internal_hub_vars",
                     "cfsketch_run",
 
-                  # Agent bundle
                     "cfe_internal_management",   # See cfe_internal/CFE_cfengine.cf
                     "service_catalogue",
                     "example_use_goals",         # See cfe_internal/example_use_goals.cf
