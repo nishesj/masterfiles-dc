@@ -13,7 +13,6 @@ body common control
                   # Common bundle first (Best Practice)
                     "def",
                     "cfe_internal_hub_vars",
-                  # Design Center
                     "cfsketch_run",
 
                   # Agent bundle
