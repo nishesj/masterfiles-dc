@@ -2,6 +2,20 @@
 
 # environment common bundles
 
+# environment 092b04a40fdd4cb8bfdb685f2c4a0328
+bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated" and => { classmatch("cfengine_3") };
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_test" expression => "!any";
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_verbose" expression => "!any";
+}
+
 
 # activation data
 bundle common cfsketch_g
@@ -9,21 +23,46 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "cf_null" };
+      "inputs" slist => { "sketches/libraries/dclib-3.5.0/library.cf", "sketches/libraries/dclib/library.cf", "sketches/databases/mysql_install_simple/main.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-
+      # array 'mymetadata' from definition sketch metadata, activation __lok_001_Database_Install_MySQL_Simple_simple
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[activation][identifier]" string => "lok";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[activation][timestamp]" string => "1377466364";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[api][running][type]" string => "return";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[api][server][type]" string => "boolean";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[license]" string => "MIT";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[location]" string => "sketches/databases/mysql_install_simple";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[name]" string => "Database::Install::MySQL::Simple";
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "mysql", "enterprise_compatible" };
+      "__lok_001_Database_Install_MySQL_Simple_simple_mymetadata[version]" string => "1";
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
+      "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
 
-
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__lok_001_Database_Install_MySQL_Simple_simple" usebundle => cfdc_db_mysql:simple("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__lok_001_Database_Install_MySQL_Simple_simple_mymetadata", ""), ifvarclass => "(linux)", useresult => "return___lok_001_Database_Install_MySQL_Simple_simple";
 
   reports:
     inform_mode::
+      "activation __lok_001_Database_Install_MySQL_Simple_simple returned installed = $(return___lok_001_Database_Install_MySQL_Simple_simple[installed])";
+      "activation __lok_001_Database_Install_MySQL_Simple_simple returned running = $(return___lok_001_Database_Install_MySQL_Simple_simple[running])";
+      "activation __lok_001_Database_Install_MySQL_Simple_simple could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
 }
