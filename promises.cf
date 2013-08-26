@@ -22,7 +22,6 @@ body common control
 
          inputs => {
 
-                  # File definition for global variables and classes
                     "def.cf",
 
                     "sketches/meta/api-runfile.cf",
