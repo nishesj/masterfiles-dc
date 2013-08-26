@@ -23,7 +23,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/package_management/packages_removed/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -56,6 +56,32 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition 08f05f1ac537f8792e9f6de945d7a552, activation __vim_001_Packages_installed_installed
       "__vim_001_Packages_installed_installed_pkgs_add" slist => { "vim" };
 
+      # array 'metadata' from definition sketch metadata, activation __go_002_Packages_removed_removed
+      "__go_002_Packages_removed_removed_metadata[activation][identifier]" string => "go";
+      "__go_002_Packages_removed_removed_metadata[activation][timestamp]" string => "1377517812";
+      "__go_002_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
+      "__go_002_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
+      "__go_002_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
+      "__go_002_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
+      "__go_002_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__go_002_Packages_removed_removed_metadata[bundle_options][name]" string => "";
+      "__go_002_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
+      "__go_002_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__go_002_Packages_removed_removed_metadata[license]" string => "MIT";
+      "__go_002_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
+      "__go_002_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
+      "__go_002_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
+      "__go_002_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
+      "__go_002_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__go_002_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__go_002_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
+      "__go_002_Packages_removed_removed_metadata[name]" string => "Packages::removed";
+      "__go_002_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__go_002_Packages_removed_removed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_removed' from definition 9ae2cdcd80c960e1cb0c2504d959ee46, activation __go_002_Packages_removed_removed
+      "__go_002_Packages_removed_removed_pkgs_removed" slist => { "sl" };
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -63,8 +89,11 @@ bundle agent cfsketch_run
 
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__vim_001_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__vim_001_Packages_installed_installed_metadata", @(cfsketch_run.__vim_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___vim_001_Packages_installed_installed";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__go_002_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__go_002_Packages_removed_removed_metadata", @(cfsketch_run.__go_002_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___go_002_Packages_removed_removed";
 
   reports:
     inform_mode::
       "activation __vim_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __go_002_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
