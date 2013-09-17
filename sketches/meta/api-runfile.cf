@@ -16,20 +16,6 @@ bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
       "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_verbose" expression => "!any";
 }
 
-# environment 1b6aaf65758a53826053c5dd3e893e29
-bundle common 1b6aaf65758a53826053c5dd3e893e29
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_1b6aaf65758a53826053c5dd3e893e29_activated" and => { classmatch("linux") };
-      "runenv_1b6aaf65758a53826053c5dd3e893e29_test" expression => "!any";
-      "runenv_1b6aaf65758a53826053c5dd3e893e29_verbose" expression => "!any";
-}
-
 
 # activation data
 bundle common cfsketch_g
@@ -37,7 +23,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib-3.5.0/library.cf", "sketches/libraries/dclib/library.cf", "sketches/databases/mysql_install_simple/main.cf", "sketches/package_management/packages_installed/main.cf", "sketches/utilities/data_classes/main.cf", "sketches/applications/newrelic/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib-3.5.0/library.cf", "sketches/libraries/dclib/library.cf", "sketches/databases/mysql_install_simple/main.cf", "sketches/utilities/data_classes/main.cf", "sketches/applications/newrelic/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -66,92 +52,55 @@ bundle agent cfsketch_run
       "__ole_001_Database_Install_MySQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "mysql", "enterprise_compatible" };
       "__ole_001_Database_Install_MySQL_Simple_simple_mymetadata[version]" string => "1";
 
-      # array 'metadata' from definition sketch metadata, activation __as_002_Packages_installed_installed
-      "__as_002_Packages_installed_installed_metadata[activation][identifier]" string => "as";
-      "__as_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1379328065";
-      "__as_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__as_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__as_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__as_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__as_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__as_002_Packages_installed_installed_metadata[bundle_options][name]" string => "";
-      "__as_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__as_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__as_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__as_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__as_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__as_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__as_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__as_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__as_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__as_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__as_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__as_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__as_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # list 'ports' from definition 87e25a5427936ef3cc02681abeb9c306, activation __sa_002_Data_Classes_byport
+      "__sa_002_Data_Classes_byport_ports" slist => { "as" };
 
-      # list 'pkgs_add' from definition b5c8d3bff41d88f3bc806716f504d56b, activation __as_002_Packages_installed_installed
-      "__as_002_Packages_installed_installed_pkgs_add" slist => { "sa" };
-
-      # list 'ports' from definition 87e25a5427936ef3cc02681abeb9c306, activation __sa_003_Data_Classes_byport
-      "__sa_003_Data_Classes_byport_ports" slist => { "as" };
-
-      # list 'ports' from definition d36263e28592d1e5289fa565c4c61f46, activation __as_004_Data_Classes_byport
-      "__as_004_Data_Classes_byport_ports" slist => { "as" };
-
-      # array 'metadata' from definition sketch metadata, activation __ok_005_Applications_NewRelic_server
-      "__ok_005_Applications_NewRelic_server_metadata[activation][identifier]" string => "ok";
-      "__ok_005_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1379370221";
-      "__ok_005_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
-      "__ok_005_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
-      "__ok_005_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
-      "__ok_005_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
-      "__ok_005_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
-      "__ok_005_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
-      "__ok_005_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
-      "__ok_005_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
-      "__ok_005_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__ok_005_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__ok_005_Applications_NewRelic_server_metadata[license]" string => "MIT";
-      "__ok_005_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
-      "__ok_005_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__ok_005_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__ok_005_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
-      "__ok_005_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
-      "__ok_005_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__ok_005_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
-      "__ok_005_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
-      "__ok_005_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
-      "__ok_005_Applications_NewRelic_server_metadata[version]" string => "1";
+      # array 'metadata' from definition sketch metadata, activation __ok_003_Applications_NewRelic_server
+      "__ok_003_Applications_NewRelic_server_metadata[activation][identifier]" string => "ok";
+      "__ok_003_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1379370221";
+      "__ok_003_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
+      "__ok_003_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
+      "__ok_003_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
+      "__ok_003_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
+      "__ok_003_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
+      "__ok_003_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
+      "__ok_003_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
+      "__ok_003_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
+      "__ok_003_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__ok_003_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__ok_003_Applications_NewRelic_server_metadata[license]" string => "MIT";
+      "__ok_003_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
+      "__ok_003_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__ok_003_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__ok_003_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
+      "__ok_003_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
+      "__ok_003_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__ok_003_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
+      "__ok_003_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
+      "__ok_003_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
+      "__ok_003_Applications_NewRelic_server_metadata[version]" string => "1";
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
       "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
-      "1b6aaf65758a53826053c5dd3e893e29" usebundle => "1b6aaf65758a53826053c5dd3e893e29";
 
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__ole_001_Database_Install_MySQL_Simple_simple" usebundle => cfdc_db_mysql:simple("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ole_001_Database_Install_MySQL_Simple_simple_mymetadata", "1"), ifvarclass => "(linux)", useresult => "return___ole_001_Database_Install_MySQL_Simple_simple";
-    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__as_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__as_002_Packages_installed_installed_metadata", @(cfsketch_run.__as_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___as_002_Packages_installed_installed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__sa_003_Data_Classes_byport" usebundle => byport("as", @(cfsketch_run.__sa_003_Data_Classes_byport_ports)), ifvarclass => "linux", useresult => "return___sa_003_Data_Classes_byport";
+      "__sa_002_Data_Classes_byport" usebundle => byport("as", @(cfsketch_run.__sa_002_Data_Classes_byport_ports)), ifvarclass => "linux", useresult => "return___sa_002_Data_Classes_byport";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__as_004_Data_Classes_byport" usebundle => byport("as", @(cfsketch_run.__as_004_Data_Classes_byport_ports)), ifvarclass => "linux", useresult => "return___as_004_Data_Classes_byport";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ok_005_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_005_Applications_NewRelic_server_metadata", "not valid", "", ""), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_005_Applications_NewRelic_server";
+      "__ok_003_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_003_Applications_NewRelic_server_metadata", "not valid", "", ""), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_003_Applications_NewRelic_server";
 
   reports:
     inform_mode::
       "activation __ole_001_Database_Install_MySQL_Simple_simple returned installed = $(return___ole_001_Database_Install_MySQL_Simple_simple[installed])";
       "activation __ole_001_Database_Install_MySQL_Simple_simple returned running = $(return___ole_001_Database_Install_MySQL_Simple_simple[running])";
       "activation __ole_001_Database_Install_MySQL_Simple_simple could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
-      "activation __as_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __sa_003_Data_Classes_byport returned defined = $(return___sa_003_Data_Classes_byport[defined])";
-      "activation __sa_003_Data_Classes_byport could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __as_004_Data_Classes_byport returned defined = $(return___as_004_Data_Classes_byport[defined])";
-      "activation __as_004_Data_Classes_byport could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __ok_005_Applications_NewRelic_server returned installed = $(return___ok_005_Applications_NewRelic_server[installed])";
-      "activation __ok_005_Applications_NewRelic_server returned configured = $(return___ok_005_Applications_NewRelic_server[configured])";
-      "activation __ok_005_Applications_NewRelic_server returned running = $(return___ok_005_Applications_NewRelic_server[running])";
-      "activation __ok_005_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __sa_002_Data_Classes_byport returned defined = $(return___sa_002_Data_Classes_byport[defined])";
+      "activation __sa_002_Data_Classes_byport could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __ok_003_Applications_NewRelic_server returned installed = $(return___ok_003_Applications_NewRelic_server[installed])";
+      "activation __ok_003_Applications_NewRelic_server returned configured = $(return___ok_003_Applications_NewRelic_server[configured])";
+      "activation __ok_003_Applications_NewRelic_server returned running = $(return___ok_003_Applications_NewRelic_server[running])";
+      "activation __ok_003_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
