@@ -90,7 +90,7 @@ bundle agent cfsketch_run
 
       # array 'metadata' from definition sketch metadata, activation __ok_004_Applications_NewRelic_server
       "__ok_004_Applications_NewRelic_server_metadata[activation][identifier]" string => "ok";
-      "__ok_004_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1379370221";
+      "__ok_004_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1379681863";
       "__ok_004_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
       "__ok_004_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
       "__ok_004_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
@@ -125,7 +125,7 @@ bundle agent cfsketch_run
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__asd_003_Data_Classes_byport" usebundle => byport("asd", @(cfsketch_run.__asd_003_Data_Classes_byport_ports)), ifvarclass => "linux", useresult => "return___asd_003_Data_Classes_byport";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ok_004_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_004_Applications_NewRelic_server_metadata", "not valid", "", ""), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_004_Applications_NewRelic_server";
+      "__ok_004_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_004_Applications_NewRelic_server_metadata", "not valid", "1", "1"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_004_Applications_NewRelic_server";
 
   reports:
     inform_mode::
