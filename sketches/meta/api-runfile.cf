@@ -23,95 +23,121 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/utilities/abortclasses/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/databases/mysql_install_simple/main.cf", "sketches/utilities/data_classes/main.cf", "sketches/applications/newrelic/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/utilities/abortclasses/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/databases/mysql_install_simple/main.cf", "sketches/utilities/data_classes/main.cf", "sketches/applications/newrelic/main.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __qw_001_Utilities_abortclasses_abortclasses_filebased
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[activation][identifier]" string => "qw";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[activation][timestamp]" string => "1379604456";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][abortclass][type]" string => "string";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][alert_only][type]" string => "boolean";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][metadata][type]" string => "metadata";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][runenv][type]" string => "environment";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][timeout][type]" string => "array";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_context][type]" string => "string";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_file][type]" string => "string";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[authors]" slist => { "Ben Heilman <bheilman@enova.com>", "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[license]" string => "MIT";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[location]" string => "sketches/utilities/abortclasses";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_docs]" slist => { "README.md" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_exe]" slist => { "cf_null" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_test]" slist => { "cf_null" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[name]" string => "Utilities::abortclasses";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[tags]" slist => { "cfdc" };
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata[version]" string => "1.7";
+      # array 'metadata' from definition sketch metadata, activation __abort_001_Packages_installed_installed
+      "__abort_001_Packages_installed_installed_metadata[activation][identifier]" string => "abort";
+      "__abort_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1379681971";
+      "__abort_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__abort_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__abort_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__abort_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__abort_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__abort_001_Packages_installed_installed_metadata[bundle_options][name]" string => "";
+      "__abort_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__abort_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__abort_001_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__abort_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__abort_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__abort_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__abort_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__abort_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__abort_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__abort_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__abort_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__abort_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__abort_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # array 'timeout' from definition efce8022c7a53d3755ded38aa6b64730, activation __qw_001_Utilities_abortclasses_abortclasses_filebased
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[action]" string => "abortclasses_timeout_action_noop";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[days]" string => "144";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[enabled]" string => "false";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[hours]" string => "24";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[minutes]" string => "0";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
+      # list 'pkgs_add' from definition 41b21b2310240ec555828054584bf1f1, activation __abort_001_Packages_installed_installed
+      "__abort_001_Packages_installed_installed_pkgs_add" slist => { "as" };
 
-      # array 'mymetadata' from definition sketch metadata, activation __ole_002_Database_Install_MySQL_Simple_simple
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[activation][identifier]" string => "ole";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[activation][timestamp]" string => "1378292662";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[api][running][type]" string => "return";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[api][server][type]" string => "boolean";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[license]" string => "MIT";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[location]" string => "sketches/databases/mysql_install_simple";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[name]" string => "Database::Install::MySQL::Simple";
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "mysql", "enterprise_compatible" };
-      "__ole_002_Database_Install_MySQL_Simple_simple_mymetadata[version]" string => "1";
+      # array 'metadata' from definition sketch metadata, activation __qw_002_Utilities_abortclasses_abortclasses_filebased
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[activation][identifier]" string => "qw";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[activation][timestamp]" string => "1379604456";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][abortclass][type]" string => "string";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][alert_only][type]" string => "boolean";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][metadata][type]" string => "metadata";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][runenv][type]" string => "environment";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][timeout][type]" string => "array";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_context][type]" string => "string";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_file][type]" string => "string";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[authors]" slist => { "Ben Heilman <bheilman@enova.com>", "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[license]" string => "MIT";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[location]" string => "sketches/utilities/abortclasses";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_docs]" slist => { "README.md" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_exe]" slist => { "cf_null" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_test]" slist => { "cf_null" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[name]" string => "Utilities::abortclasses";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[tags]" slist => { "cfdc" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[version]" string => "1.7";
 
-      # list 'ports' from definition 7814a1d5adfeb7b7b6d05566e9b8e311, activation __asd_003_Data_Classes_byport
-      "__asd_003_Data_Classes_byport_ports" slist => { "asdasd" };
+      # array 'timeout' from definition efce8022c7a53d3755ded38aa6b64730, activation __qw_002_Utilities_abortclasses_abortclasses_filebased
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[action]" string => "abortclasses_timeout_action_noop";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[days]" string => "144";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[enabled]" string => "false";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[hours]" string => "24";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[minutes]" string => "0";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
 
-      # array 'metadata' from definition sketch metadata, activation __ok_004_Applications_NewRelic_server
-      "__ok_004_Applications_NewRelic_server_metadata[activation][identifier]" string => "ok";
-      "__ok_004_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1379681863";
-      "__ok_004_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
-      "__ok_004_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
-      "__ok_004_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
-      "__ok_004_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
-      "__ok_004_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
-      "__ok_004_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
-      "__ok_004_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
-      "__ok_004_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
-      "__ok_004_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__ok_004_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__ok_004_Applications_NewRelic_server_metadata[license]" string => "MIT";
-      "__ok_004_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
-      "__ok_004_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__ok_004_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__ok_004_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
-      "__ok_004_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
-      "__ok_004_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__ok_004_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
-      "__ok_004_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
-      "__ok_004_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
-      "__ok_004_Applications_NewRelic_server_metadata[version]" string => "1";
+      # array 'mymetadata' from definition sketch metadata, activation __ole_003_Database_Install_MySQL_Simple_simple
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[activation][identifier]" string => "ole";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[activation][timestamp]" string => "1378292662";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[api][running][type]" string => "return";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[api][server][type]" string => "boolean";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[license]" string => "MIT";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[location]" string => "sketches/databases/mysql_install_simple";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[name]" string => "Database::Install::MySQL::Simple";
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "mysql", "enterprise_compatible" };
+      "__ole_003_Database_Install_MySQL_Simple_simple_mymetadata[version]" string => "1";
+
+      # list 'ports' from definition 7814a1d5adfeb7b7b6d05566e9b8e311, activation __asd_004_Data_Classes_byport
+      "__asd_004_Data_Classes_byport_ports" slist => { "asdasd" };
+
+      # array 'metadata' from definition sketch metadata, activation __ok_005_Applications_NewRelic_server
+      "__ok_005_Applications_NewRelic_server_metadata[activation][identifier]" string => "ok";
+      "__ok_005_Applications_NewRelic_server_metadata[activation][timestamp]" string => "1379681863";
+      "__ok_005_Applications_NewRelic_server_metadata[api][configured][type]" string => "return";
+      "__ok_005_Applications_NewRelic_server_metadata[api][ensure][type]" string => "boolean";
+      "__ok_005_Applications_NewRelic_server_metadata[api][install][type]" string => "boolean";
+      "__ok_005_Applications_NewRelic_server_metadata[api][installed][type]" string => "return";
+      "__ok_005_Applications_NewRelic_server_metadata[api][license_key][type]" string => "string";
+      "__ok_005_Applications_NewRelic_server_metadata[api][metadata][type]" string => "metadata";
+      "__ok_005_Applications_NewRelic_server_metadata[api][runenv][type]" string => "environment";
+      "__ok_005_Applications_NewRelic_server_metadata[api][running][type]" string => "return";
+      "__ok_005_Applications_NewRelic_server_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__ok_005_Applications_NewRelic_server_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__ok_005_Applications_NewRelic_server_metadata[license]" string => "MIT";
+      "__ok_005_Applications_NewRelic_server_metadata[location]" string => "sketches/applications/newrelic";
+      "__ok_005_Applications_NewRelic_server_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__ok_005_Applications_NewRelic_server_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__ok_005_Applications_NewRelic_server_metadata[manifest_docs]" slist => { "README.md" };
+      "__ok_005_Applications_NewRelic_server_metadata[manifest_exe]" slist => { "cf_null" };
+      "__ok_005_Applications_NewRelic_server_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__ok_005_Applications_NewRelic_server_metadata[manifest_test]" slist => { "test.pl" };
+      "__ok_005_Applications_NewRelic_server_metadata[name]" string => "Applications::NewRelic";
+      "__ok_005_Applications_NewRelic_server_metadata[tags]" slist => { "cfdc", "newrelic", "enterprise_compatible" };
+      "__ok_005_Applications_NewRelic_server_metadata[version]" string => "1";
 
   methods:
     any::
@@ -119,24 +145,27 @@ bundle agent cfsketch_run
       "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
 
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__qw_001_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_001_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_001_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_001_Utilities_abortclasses_abortclasses_filebased";
+      "__abort_001_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__abort_001_Packages_installed_installed_metadata", @(cfsketch_run.__abort_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___abort_001_Packages_installed_installed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ole_002_Database_Install_MySQL_Simple_simple" usebundle => cfdc_db_mysql:simple("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ole_002_Database_Install_MySQL_Simple_simple_mymetadata", "1"), ifvarclass => "(linux)", useresult => "return___ole_002_Database_Install_MySQL_Simple_simple";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_002_Utilities_abortclasses_abortclasses_filebased";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__asd_003_Data_Classes_byport" usebundle => byport("asd", @(cfsketch_run.__asd_003_Data_Classes_byport_ports)), ifvarclass => "linux", useresult => "return___asd_003_Data_Classes_byport";
+      "__ole_003_Database_Install_MySQL_Simple_simple" usebundle => cfdc_db_mysql:simple("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ole_003_Database_Install_MySQL_Simple_simple_mymetadata", "1"), ifvarclass => "(linux)", useresult => "return___ole_003_Database_Install_MySQL_Simple_simple";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ok_004_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_004_Applications_NewRelic_server_metadata", "not valid", "1", "1"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_004_Applications_NewRelic_server";
+      "__asd_004_Data_Classes_byport" usebundle => byport("asd", @(cfsketch_run.__asd_004_Data_Classes_byport_ports)), ifvarclass => "linux", useresult => "return___asd_004_Data_Classes_byport";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__ok_005_Applications_NewRelic_server" usebundle => cfdc_newrelic:server("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_005_Applications_NewRelic_server_metadata", "not valid", "1", "1"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_005_Applications_NewRelic_server";
 
   reports:
     inform_mode::
-      "activation __qw_001_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __ole_002_Database_Install_MySQL_Simple_simple returned installed = $(return___ole_002_Database_Install_MySQL_Simple_simple[installed])";
-      "activation __ole_002_Database_Install_MySQL_Simple_simple returned running = $(return___ole_002_Database_Install_MySQL_Simple_simple[running])";
-      "activation __ole_002_Database_Install_MySQL_Simple_simple could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
-      "activation __asd_003_Data_Classes_byport returned defined = $(return___asd_003_Data_Classes_byport[defined])";
-      "activation __asd_003_Data_Classes_byport could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __ok_004_Applications_NewRelic_server returned installed = $(return___ok_004_Applications_NewRelic_server[installed])";
-      "activation __ok_004_Applications_NewRelic_server returned configured = $(return___ok_004_Applications_NewRelic_server[configured])";
-      "activation __ok_004_Applications_NewRelic_server returned running = $(return___ok_004_Applications_NewRelic_server[running])";
-      "activation __ok_004_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __abort_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __qw_002_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __ole_003_Database_Install_MySQL_Simple_simple returned installed = $(return___ole_003_Database_Install_MySQL_Simple_simple[installed])";
+      "activation __ole_003_Database_Install_MySQL_Simple_simple returned running = $(return___ole_003_Database_Install_MySQL_Simple_simple[running])";
+      "activation __ole_003_Database_Install_MySQL_Simple_simple could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
+      "activation __asd_004_Data_Classes_byport returned defined = $(return___asd_004_Data_Classes_byport[defined])";
+      "activation __asd_004_Data_Classes_byport could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __ok_005_Applications_NewRelic_server returned installed = $(return___ok_005_Applications_NewRelic_server[installed])";
+      "activation __ok_005_Applications_NewRelic_server returned configured = $(return___ok_005_Applications_NewRelic_server[configured])";
+      "activation __ok_005_Applications_NewRelic_server returned running = $(return___ok_005_Applications_NewRelic_server[running])";
+      "activation __ok_005_Applications_NewRelic_server could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
