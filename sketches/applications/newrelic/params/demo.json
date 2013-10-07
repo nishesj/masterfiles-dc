@@ -1,6 +1,0 @@
-{
-    "Applications::NewRelic":
-    {
-        license_key: "invalid license key"
-    }
-}
