@@ -14,6 +14,7 @@ body common control
 
  bundlesequence => { 
                     "cfe_internal_update_bins", 
+		     "update_from_repository",
                     "cfe_internal_update_policy",
                     "cfe_internal_update_processes", 
                    };
@@ -22,6 +23,7 @@ body common control
 
  inputs => { 
             "update/update_bins.cf", 
+	     "update/update_from_repository.cf",	
             "update/update_policy.cf", 
             "update/update_processes.cf",
            };
