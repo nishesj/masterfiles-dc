@@ -7,7 +7,7 @@
       "/usr/bin/git fetch --all"
         contain => u_no_output;
 
-      "/usr/bin/git reset --hard origin/master"   # change to your branch
+      "/usr/bin/git reset --hard origin/CF_WORKING_BRANCH"   # change to your branch
         contain => u_no_output;
     }
 
