@@ -23,7 +23,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/utilities/abortclasses/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/databases/mysql_install_simple/main.cf", "sketches/utilities/data_classes/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/utilities/abortclasses/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/utilities/data_classes/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -141,30 +141,8 @@ bundle agent cfsketch_run
       "__qw_004_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
       "__qw_004_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
 
-      # array 'mymetadata' from definition sketch metadata, activation __ole_005_Database_Install_MySQL_Simple_simple
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[activation][identifier]" string => "ole";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[activation][timestamp]" string => "1378292662";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[api][running][type]" string => "return";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[api][server][type]" string => "boolean";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[license]" string => "MIT";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[location]" string => "sketches/databases/mysql_install_simple";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[name]" string => "Database::Install::MySQL::Simple";
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "mysql", "enterprise_compatible" };
-      "__ole_005_Database_Install_MySQL_Simple_simple_mymetadata[version]" string => "1";
-
-      # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_006_Data_Classes_byfile
-      "__cc_006_Data_Classes_byfile_files" slist => { "vdasz" };
+      # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_005_Data_Classes_byfile
+      "__cc_005_Data_Classes_byfile_files" slist => { "vdasz" };
 
   methods:
     any::
@@ -180,11 +158,9 @@ bundle agent cfsketch_run
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__qw_004_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_004_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_004_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_004_Utilities_abortclasses_abortclasses_filebased";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ole_005_Database_Install_MySQL_Simple_simple" usebundle => cfdc_db_mysql:simple("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ole_005_Database_Install_MySQL_Simple_simple_mymetadata", "1"), ifvarclass => "(linux)", useresult => "return___ole_005_Database_Install_MySQL_Simple_simple";
+      "__cc_005_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_005_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_005_Data_Classes_byfile";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__cc_006_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_006_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_006_Data_Classes_byfile";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__aaa_007_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_007_Data_Classes_bynet";
+      "__aaa_006_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_006_Data_Classes_bynet";
 
   reports:
     inform_mode::
@@ -192,11 +168,8 @@ bundle agent cfsketch_run
       "activation __ca_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
       "activation __install_sl_003_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
       "activation __qw_004_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __ole_005_Database_Install_MySQL_Simple_simple returned installed = $(return___ole_005_Database_Install_MySQL_Simple_simple[installed])";
-      "activation __ole_005_Database_Install_MySQL_Simple_simple returned running = $(return___ole_005_Database_Install_MySQL_Simple_simple[running])";
-      "activation __ole_005_Database_Install_MySQL_Simple_simple could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
-      "activation __cc_006_Data_Classes_byfile returned defined = $(return___cc_006_Data_Classes_byfile[defined])";
-      "activation __cc_006_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __aaa_007_Data_Classes_bynet returned defined = $(return___aaa_007_Data_Classes_bynet[defined])";
-      "activation __aaa_007_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __cc_005_Data_Classes_byfile returned defined = $(return___cc_005_Data_Classes_byfile[defined])";
+      "activation __cc_005_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __aaa_006_Data_Classes_bynet returned defined = $(return___aaa_006_Data_Classes_bynet[defined])";
+      "activation __aaa_006_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
 }
