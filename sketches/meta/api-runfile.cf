@@ -23,7 +23,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/utilities/abortclasses/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/utilities/data_classes/main.cf", "sketches/package_management/packages_removed/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/utilities/abortclasses/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/utilities/data_classes/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -66,32 +66,6 @@ bundle agent cfsketch_run
       # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_002_Data_Classes_byfile
       "__cc_002_Data_Classes_byfile_files" slist => { "vdasz" };
 
-      # array 'metadata' from definition sketch metadata, activation __ok_004_Packages_removed_removed
-      "__ok_004_Packages_removed_removed_metadata[activation][identifier]" string => "ok";
-      "__ok_004_Packages_removed_removed_metadata[activation][timestamp]" string => "1381238658";
-      "__ok_004_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
-      "__ok_004_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
-      "__ok_004_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
-      "__ok_004_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
-      "__ok_004_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__ok_004_Packages_removed_removed_metadata[bundle_options][name]" string => "";
-      "__ok_004_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
-      "__ok_004_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__ok_004_Packages_removed_removed_metadata[license]" string => "MIT";
-      "__ok_004_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
-      "__ok_004_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
-      "__ok_004_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
-      "__ok_004_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
-      "__ok_004_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__ok_004_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__ok_004_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
-      "__ok_004_Packages_removed_removed_metadata[name]" string => "Packages::removed";
-      "__ok_004_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__ok_004_Packages_removed_removed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_removed' from definition cfa6cec67a7f55309ad2ab7d0f324828, activation __ok_004_Packages_removed_removed
-      "__ok_004_Packages_removed_removed_pkgs_removed" slist => { "ok" };
-
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -103,8 +77,6 @@ bundle agent cfsketch_run
       "__cc_002_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_002_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_002_Data_Classes_byfile";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__aaa_003_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_003_Data_Classes_bynet";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__ok_004_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__ok_004_Packages_removed_removed_metadata", @(cfsketch_run.__ok_004_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___ok_004_Packages_removed_removed";
 
   reports:
     inform_mode::
@@ -113,5 +85,4 @@ bundle agent cfsketch_run
       "activation __cc_002_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
       "activation __aaa_003_Data_Classes_bynet returned defined = $(return___aaa_003_Data_Classes_bynet[defined])";
       "activation __aaa_003_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __ok_004_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
