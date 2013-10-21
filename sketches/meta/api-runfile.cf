@@ -82,119 +82,41 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition 0e93a0c912c9af8328c16f5c4c8b5b96, activation __resttest_002_Packages_installed_installed
       "__resttest_002_Packages_installed_installed_pkgs_add" slist => { "resttest" };
 
-      # array 'metadata' from definition sketch metadata, activation __pokemon_003_Packages_installed_installed
-      "__pokemon_003_Packages_installed_installed_metadata[activation][identifier]" string => "pokemon";
-      "__pokemon_003_Packages_installed_installed_metadata[activation][timestamp]" string => "1382355029";
-      "__pokemon_003_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__pokemon_003_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__pokemon_003_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__pokemon_003_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__pokemon_003_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__pokemon_003_Packages_installed_installed_metadata[bundle_options][name]" string => "";
-      "__pokemon_003_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__pokemon_003_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__pokemon_003_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__pokemon_003_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__pokemon_003_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__pokemon_003_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__pokemon_003_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__pokemon_003_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__pokemon_003_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__pokemon_003_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__pokemon_003_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__pokemon_003_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__pokemon_003_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __qw_003_Utilities_abortclasses_abortclasses_filebased
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[activation][identifier]" string => "qw";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[activation][timestamp]" string => "1379604456";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][abortclass][type]" string => "string";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][alert_only][type]" string => "boolean";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][metadata][type]" string => "metadata";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][runenv][type]" string => "environment";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][timeout][type]" string => "array";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_context][type]" string => "string";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_file][type]" string => "string";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[authors]" slist => { "Ben Heilman <bheilman@enova.com>", "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[license]" string => "MIT";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[location]" string => "sketches/utilities/abortclasses";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_docs]" slist => { "README.md" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_exe]" slist => { "cf_null" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_test]" slist => { "cf_null" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[name]" string => "Utilities::abortclasses";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[tags]" slist => { "cfdc" };
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[version]" string => "1.7";
 
-      # list 'pkgs_add' from definition 1e9077ddef252094adb6d7bae6c891fa, activation __pokemon_003_Packages_installed_installed
-      "__pokemon_003_Packages_installed_installed_pkgs_add" slist => { "pokemon" };
+      # array 'timeout' from definition efce8022c7a53d3755ded38aa6b64730, activation __qw_003_Utilities_abortclasses_abortclasses_filebased
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[action]" string => "abortclasses_timeout_action_noop";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[days]" string => "144";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[enabled]" string => "false";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[hours]" string => "24";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[minutes]" string => "0";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
 
-      # array 'metadata' from definition sketch metadata, activation __pokemon_004_Packages_installed_installed
-      "__pokemon_004_Packages_installed_installed_metadata[activation][identifier]" string => "pokemon";
-      "__pokemon_004_Packages_installed_installed_metadata[activation][timestamp]" string => "1382355061";
-      "__pokemon_004_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__pokemon_004_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__pokemon_004_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__pokemon_004_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__pokemon_004_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__pokemon_004_Packages_installed_installed_metadata[bundle_options][name]" string => "";
-      "__pokemon_004_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__pokemon_004_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__pokemon_004_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__pokemon_004_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__pokemon_004_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__pokemon_004_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__pokemon_004_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__pokemon_004_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__pokemon_004_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__pokemon_004_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__pokemon_004_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__pokemon_004_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__pokemon_004_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition f3ab9701e6b6269554c5621b537c6412, activation __pokemon_004_Packages_installed_installed
-      "__pokemon_004_Packages_installed_installed_pkgs_add" slist => { "pokemon" };
-
-      # array 'metadata' from definition sketch metadata, activation __pokemon_005_Packages_installed_installed
-      "__pokemon_005_Packages_installed_installed_metadata[activation][identifier]" string => "pokemon";
-      "__pokemon_005_Packages_installed_installed_metadata[activation][timestamp]" string => "1382355091";
-      "__pokemon_005_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__pokemon_005_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__pokemon_005_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__pokemon_005_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__pokemon_005_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__pokemon_005_Packages_installed_installed_metadata[bundle_options][name]" string => "";
-      "__pokemon_005_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__pokemon_005_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__pokemon_005_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__pokemon_005_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__pokemon_005_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__pokemon_005_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__pokemon_005_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__pokemon_005_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__pokemon_005_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__pokemon_005_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__pokemon_005_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__pokemon_005_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__pokemon_005_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition 3bf85038fc215fcfe5c918c21504a9c3, activation __pokemon_005_Packages_installed_installed
-      "__pokemon_005_Packages_installed_installed_pkgs_add" slist => { "pokemon" };
-
-      # array 'metadata' from definition sketch metadata, activation __qw_006_Utilities_abortclasses_abortclasses_filebased
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[activation][identifier]" string => "qw";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[activation][timestamp]" string => "1379604456";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][abortclass][type]" string => "string";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][alert_only][type]" string => "boolean";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][metadata][type]" string => "metadata";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][runenv][type]" string => "environment";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][timeout][type]" string => "array";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_context][type]" string => "string";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_file][type]" string => "string";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[authors]" slist => { "Ben Heilman <bheilman@enova.com>", "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[license]" string => "MIT";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[location]" string => "sketches/utilities/abortclasses";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_docs]" slist => { "README.md" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_exe]" slist => { "cf_null" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_test]" slist => { "cf_null" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[name]" string => "Utilities::abortclasses";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[tags]" slist => { "cfdc" };
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata[version]" string => "1.7";
-
-      # array 'timeout' from definition efce8022c7a53d3755ded38aa6b64730, activation __qw_006_Utilities_abortclasses_abortclasses_filebased
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[action]" string => "abortclasses_timeout_action_noop";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[days]" string => "144";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[enabled]" string => "false";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[hours]" string => "24";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[minutes]" string => "0";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
-
-      # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_007_Data_Classes_byfile
-      "__cc_007_Data_Classes_byfile_files" slist => { "vdasz" };
+      # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_004_Data_Classes_byfile
+      "__cc_004_Data_Classes_byfile_files" slist => { "vdasz" };
 
   methods:
     any::
@@ -206,28 +128,19 @@ bundle agent cfsketch_run
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__resttest_002_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__resttest_002_Packages_installed_installed_metadata", @(cfsketch_run.__resttest_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___resttest_002_Packages_installed_installed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__pokemon_003_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__pokemon_003_Packages_installed_installed_metadata", @(cfsketch_run.__pokemon_003_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___pokemon_003_Packages_installed_installed";
+      "__qw_003_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_003_Utilities_abortclasses_abortclasses_filebased";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__pokemon_004_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__pokemon_004_Packages_installed_installed_metadata", @(cfsketch_run.__pokemon_004_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___pokemon_004_Packages_installed_installed";
+      "__cc_004_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_004_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_004_Data_Classes_byfile";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__pokemon_005_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__pokemon_005_Packages_installed_installed_metadata", @(cfsketch_run.__pokemon_005_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___pokemon_005_Packages_installed_installed";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__qw_006_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_006_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_006_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_006_Utilities_abortclasses_abortclasses_filebased";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__cc_007_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_007_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_007_Data_Classes_byfile";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__aaa_008_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_008_Data_Classes_bynet";
+      "__aaa_005_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_005_Data_Classes_bynet";
 
   reports:
     inform_mode::
       "activation __install_sl_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
       "activation __resttest_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __pokemon_003_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __pokemon_004_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __pokemon_005_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __qw_006_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __cc_007_Data_Classes_byfile returned defined = $(return___cc_007_Data_Classes_byfile[defined])";
-      "activation __cc_007_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __aaa_008_Data_Classes_bynet returned defined = $(return___aaa_008_Data_Classes_bynet[defined])";
-      "activation __aaa_008_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __qw_003_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __cc_004_Data_Classes_byfile returned defined = $(return___cc_004_Data_Classes_byfile[defined])";
+      "activation __cc_004_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __aaa_005_Data_Classes_bynet returned defined = $(return___aaa_005_Data_Classes_bynet[defined])";
+      "activation __aaa_005_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
 }
