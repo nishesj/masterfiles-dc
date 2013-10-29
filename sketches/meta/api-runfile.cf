@@ -56,119 +56,93 @@ bundle agent cfsketch_run
       # list 'pkgs_add' from definition 518aa3e73cd6b3873246894d75f45091, activation __install_sl_001_Packages_installed_installed
       "__install_sl_001_Packages_installed_installed_pkgs_add" slist => { "sl" };
 
-      # array 'metadata' from definition sketch metadata, activation __resttest_002_Packages_installed_installed
-      "__resttest_002_Packages_installed_installed_metadata[activation][identifier]" string => "resttest";
-      "__resttest_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1382353594";
-      "__resttest_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__resttest_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__resttest_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__resttest_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__resttest_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__resttest_002_Packages_installed_installed_metadata[bundle_options][name]" string => "";
-      "__resttest_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__resttest_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__resttest_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__resttest_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__resttest_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__resttest_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__resttest_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__resttest_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__resttest_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__resttest_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__resttest_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__resttest_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__resttest_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __qw_002_Utilities_abortclasses_abortclasses_filebased
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[activation][identifier]" string => "qw";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[activation][timestamp]" string => "1379604456";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][abortclass][type]" string => "string";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][alert_only][type]" string => "boolean";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][metadata][type]" string => "metadata";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][runenv][type]" string => "environment";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][timeout][type]" string => "array";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_context][type]" string => "string";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_file][type]" string => "string";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[authors]" slist => { "Ben Heilman <bheilman@enova.com>", "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[license]" string => "MIT";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[location]" string => "sketches/utilities/abortclasses";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_docs]" slist => { "README.md" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_exe]" slist => { "cf_null" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_test]" slist => { "cf_null" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[name]" string => "Utilities::abortclasses";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[tags]" slist => { "cfdc" };
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata[version]" string => "1.7";
 
-      # list 'pkgs_add' from definition 0e93a0c912c9af8328c16f5c4c8b5b96, activation __resttest_002_Packages_installed_installed
-      "__resttest_002_Packages_installed_installed_pkgs_add" slist => { "resttest" };
+      # array 'timeout' from definition efce8022c7a53d3755ded38aa6b64730, activation __qw_002_Utilities_abortclasses_abortclasses_filebased
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[action]" string => "abortclasses_timeout_action_noop";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[days]" string => "144";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[enabled]" string => "false";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[hours]" string => "24";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[minutes]" string => "0";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
 
-      # array 'metadata' from definition sketch metadata, activation __qw_003_Utilities_abortclasses_abortclasses_filebased
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[activation][identifier]" string => "qw";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[activation][timestamp]" string => "1379604456";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][abortclass][type]" string => "string";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][alert_only][type]" string => "boolean";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][metadata][type]" string => "metadata";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][runenv][type]" string => "environment";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][timeout][type]" string => "array";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_context][type]" string => "string";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[api][trigger_file][type]" string => "string";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[authors]" slist => { "Ben Heilman <bheilman@enova.com>", "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[license]" string => "MIT";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[location]" string => "sketches/utilities/abortclasses";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_docs]" slist => { "README.md" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_exe]" slist => { "cf_null" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[manifest_test]" slist => { "cf_null" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[name]" string => "Utilities::abortclasses";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[tags]" slist => { "cfdc" };
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata[version]" string => "1.7";
+      # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_003_Data_Classes_byfile
+      "__cc_003_Data_Classes_byfile_files" slist => { "vdasz" };
 
-      # array 'timeout' from definition efce8022c7a53d3755ded38aa6b64730, activation __qw_003_Utilities_abortclasses_abortclasses_filebased
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[action]" string => "abortclasses_timeout_action_noop";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[days]" string => "144";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[enabled]" string => "false";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[hours]" string => "24";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[minutes]" string => "0";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[months]" string => "0";
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout[years]" string => "0";
+      # array 'metadata' from definition sketch metadata, activation __12_005_Packages_removed_removed
+      "__12_005_Packages_removed_removed_metadata[activation][identifier]" string => "12";
+      "__12_005_Packages_removed_removed_metadata[activation][timestamp]" string => "1382366628";
+      "__12_005_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
+      "__12_005_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
+      "__12_005_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
+      "__12_005_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
+      "__12_005_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__12_005_Packages_removed_removed_metadata[bundle_options][name]" string => "";
+      "__12_005_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
+      "__12_005_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__12_005_Packages_removed_removed_metadata[license]" string => "MIT";
+      "__12_005_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
+      "__12_005_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
+      "__12_005_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
+      "__12_005_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
+      "__12_005_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__12_005_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__12_005_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
+      "__12_005_Packages_removed_removed_metadata[name]" string => "Packages::removed";
+      "__12_005_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__12_005_Packages_removed_removed_metadata[version]" string => "1.0.0";
 
-      # list 'files' from definition 3603e753b8cb8ecc4d440dc91cd74742, activation __cc_004_Data_Classes_byfile
-      "__cc_004_Data_Classes_byfile_files" slist => { "vdasz" };
+      # list 'pkgs_removed' from definition 8f068e0b3d7c2edc2d113a48b2485f94, activation __12_005_Packages_removed_removed
+      "__12_005_Packages_removed_removed_pkgs_removed" slist => { "23" };
 
-      # array 'metadata' from definition sketch metadata, activation __12_006_Packages_removed_removed
-      "__12_006_Packages_removed_removed_metadata[activation][identifier]" string => "12";
-      "__12_006_Packages_removed_removed_metadata[activation][timestamp]" string => "1382366628";
-      "__12_006_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
-      "__12_006_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
-      "__12_006_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
-      "__12_006_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
-      "__12_006_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__12_006_Packages_removed_removed_metadata[bundle_options][name]" string => "";
-      "__12_006_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
-      "__12_006_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__12_006_Packages_removed_removed_metadata[license]" string => "MIT";
-      "__12_006_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
-      "__12_006_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
-      "__12_006_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
-      "__12_006_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
-      "__12_006_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__12_006_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__12_006_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
-      "__12_006_Packages_removed_removed_metadata[name]" string => "Packages::removed";
-      "__12_006_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__12_006_Packages_removed_removed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __xz_006_Packages_removed_removed
+      "__xz_006_Packages_removed_removed_metadata[activation][identifier]" string => "xz";
+      "__xz_006_Packages_removed_removed_metadata[activation][timestamp]" string => "1382367291";
+      "__xz_006_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
+      "__xz_006_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
+      "__xz_006_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
+      "__xz_006_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
+      "__xz_006_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__xz_006_Packages_removed_removed_metadata[bundle_options][name]" string => "";
+      "__xz_006_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
+      "__xz_006_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__xz_006_Packages_removed_removed_metadata[license]" string => "MIT";
+      "__xz_006_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
+      "__xz_006_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
+      "__xz_006_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
+      "__xz_006_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
+      "__xz_006_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__xz_006_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__xz_006_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
+      "__xz_006_Packages_removed_removed_metadata[name]" string => "Packages::removed";
+      "__xz_006_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__xz_006_Packages_removed_removed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_removed' from definition 8f068e0b3d7c2edc2d113a48b2485f94, activation __12_006_Packages_removed_removed
-      "__12_006_Packages_removed_removed_pkgs_removed" slist => { "23" };
-
-      # array 'metadata' from definition sketch metadata, activation __xz_007_Packages_removed_removed
-      "__xz_007_Packages_removed_removed_metadata[activation][identifier]" string => "xz";
-      "__xz_007_Packages_removed_removed_metadata[activation][timestamp]" string => "1382367291";
-      "__xz_007_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
-      "__xz_007_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
-      "__xz_007_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
-      "__xz_007_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
-      "__xz_007_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__xz_007_Packages_removed_removed_metadata[bundle_options][name]" string => "";
-      "__xz_007_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
-      "__xz_007_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__xz_007_Packages_removed_removed_metadata[license]" string => "MIT";
-      "__xz_007_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
-      "__xz_007_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
-      "__xz_007_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
-      "__xz_007_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
-      "__xz_007_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__xz_007_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__xz_007_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
-      "__xz_007_Packages_removed_removed_metadata[name]" string => "Packages::removed";
-      "__xz_007_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__xz_007_Packages_removed_removed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_removed' from definition e3134847d954d98d7419137b437cfd3c, activation __xz_007_Packages_removed_removed
-      "__xz_007_Packages_removed_removed_pkgs_removed" slist => { "xxx" };
+      # list 'pkgs_removed' from definition e3134847d954d98d7419137b437cfd3c, activation __xz_006_Packages_removed_removed
+      "__xz_006_Packages_removed_removed_pkgs_removed" slist => { "xxx" };
 
   methods:
     any::
@@ -178,27 +152,24 @@ bundle agent cfsketch_run
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
       "__install_sl_001_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__install_sl_001_Packages_installed_installed_metadata", @(cfsketch_run.__install_sl_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___install_sl_001_Packages_installed_installed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__resttest_002_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__resttest_002_Packages_installed_installed_metadata", @(cfsketch_run.__resttest_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___resttest_002_Packages_installed_installed";
+      "__qw_002_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_002_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_002_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_002_Utilities_abortclasses_abortclasses_filebased";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__qw_003_Utilities_abortclasses_abortclasses_filebased" usebundle => abortclasses_filebased("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__qw_003_Utilities_abortclasses_abortclasses_filebased_metadata", "class", "/COWBOY", "1", "any", "default:cfsketch_run.__qw_003_Utilities_abortclasses_abortclasses_filebased_timeout"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___qw_003_Utilities_abortclasses_abortclasses_filebased";
+      "__cc_003_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_003_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_003_Data_Classes_byfile";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__cc_004_Data_Classes_byfile" usebundle => byfile("zz", @(cfsketch_run.__cc_004_Data_Classes_byfile_files)), ifvarclass => "linux", useresult => "return___cc_004_Data_Classes_byfile";
+      "__aaa_004_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_004_Data_Classes_bynet";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__aaa_005_Data_Classes_bynet" usebundle => bynet("as", "/usr/bin/curl -s", "http://asw.as", "daas"), ifvarclass => "linux", useresult => "return___aaa_005_Data_Classes_bynet";
+      "__12_005_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__12_005_Packages_removed_removed_metadata", @(cfsketch_run.__12_005_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___12_005_Packages_removed_removed";
     runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__12_006_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__12_006_Packages_removed_removed_metadata", @(cfsketch_run.__12_006_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___12_006_Packages_removed_removed";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__xz_007_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__xz_007_Packages_removed_removed_metadata", @(cfsketch_run.__xz_007_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___xz_007_Packages_removed_removed";
+      "__xz_006_Packages_removed_removed" usebundle => cfdc_packages:removed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__xz_006_Packages_removed_removed_metadata", @(cfsketch_run.__xz_006_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___xz_006_Packages_removed_removed";
 
   reports:
     inform_mode::
       "activation __install_sl_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __resttest_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __qw_003_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __cc_004_Data_Classes_byfile returned defined = $(return___cc_004_Data_Classes_byfile[defined])";
-      "activation __cc_004_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __aaa_005_Data_Classes_bynet returned defined = $(return___aaa_005_Data_Classes_bynet[defined])";
-      "activation __aaa_005_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
-      "activation __12_006_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __xz_007_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __qw_002_Utilities_abortclasses_abortclasses_filebased could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __cc_003_Data_Classes_byfile returned defined = $(return___cc_003_Data_Classes_byfile[defined])";
+      "activation __cc_003_Data_Classes_byfile could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __aaa_004_Data_Classes_bynet returned defined = $(return___aaa_004_Data_Classes_bynet[defined])";
+      "activation __aaa_004_Data_Classes_bynet could not run because it requires classes linux" ifvarclass => "inform_mode.!(linux)";
+      "activation __12_005_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __xz_006_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
